@@ -12,7 +12,10 @@ async function main() {
 
     const nftNames = JSON.parse(fs.readFileSync('nft_names.json', 'utf8')) // todo replace with online request
     const privateKeyStr = fs.readFileSync('../key.txt', 'utf8')
-    const keypair = web3.Keypair.fromSeed(bs58.decode(privateKeyStr).slice(0, 32))
+    const privateKeyArr = privateKeyStr.replace('[', '').replace(']', '').split(',');
+    const privateKeyToIntArr = Uint8Array.from(privateKeyArr);
+    //console.log(privateKeyToIntArr);
+    const keypair = web3.Keypair.fromSeed(Uint8Array.from(privateKeyArr))
     const userPublicKey = keypair.publicKey
 
     const tokenProgramId = new web3.PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA')
@@ -118,11 +121,11 @@ async function main() {
     }
 
     function printRedPercent(percent, text) {
-        process.stdout.write(" \033[91m   " + text + ": " + Math.max(0, percent.toFixed(0))  + "%" + " \033[0m ")
+        process.stdout.write(" \u001b[91m   " + text + ": " + Math.max(0, percent.toFixed(0))  + "%" + " \u001b[0m ")
     }
 
     function printGreenPercent(percent, text) {
-        process.stdout.write(" \033[92m   " + text + ": " + Math.min(100, percent.toFixed(0) ) + "%" + " \033[0m ")
+        process.stdout.write(" \u001b[92m   " + text + ": " + Math.min(100, percent.toFixed(0) ) + "%" + " \u001b[0m ")
     }
 
     function printShipStatus() {
@@ -133,7 +136,7 @@ async function main() {
             const shipInfo = scoreVarsShipInfo.get(shipStakingInfo[i].shipMint.toString())
             const shipCount = shipStakingInfo[i].shipQuantityInEscrow
             console.log("-------------------------------")
-            console.log(" " + (i + 1) + " \033[1m Ship - " + nftNames[shipStakingInfo[i].shipMint] + " \033[0m " + shipCount + " SHIPS (" + shipStakingInfo[i].shipMint + ")")
+            console.log(" " + (i + 1) + " \u001b[1m Ship - " + nftNames[shipStakingInfo[i].shipMint] + " \u001b[0m " + shipCount + " SHIPS (" + shipStakingInfo[i].shipMint + ")")
 
             const atlasPending = calcAtlasPending(nowSec, shipStakingInfo[i], shipInfo)
             console.log("    ATLAS pending - " + atlasPending)
@@ -199,7 +202,7 @@ async function main() {
         await delay(1000)
 
         const nowSec = new Date().getTime() / 1000
-        if (calcAtlasPending(nowSec, shipStakingInfo[i], shipInfo) > 1) {
+        if (calcAtlasPending(nowSec, shipStakingInfo[i], shipInfo) > 20) {
             console.log("Claim ATLAS... ")
             await sendTransaction(await atlas.createHarvestInstruction(connection, userPublicKey, getTokenPublicKey(atlasTokenMint), shipStakingInfo[i].shipMint, scoreProgId))
             await delay(1000)
@@ -225,7 +228,7 @@ async function main() {
     console.log(' ')
 
     const currentAtlasBalance = getTokenAmount(atlasTokenMint)
-    console.log('TOTAL CLAIM ATLAS:\033[92m + ' + (currentAtlasBalance - atlasTokenCount) + "\033[0m ")
+    console.log('TOTAL CLAIM ATLAS:\u001b[92m + ' + (currentAtlasBalance - atlasTokenCount) + "\u001b[0m ")
     console.log('CURRENT ATLAS BALANCE: ' + currentAtlasBalance)
     console.log(' ')
 }
