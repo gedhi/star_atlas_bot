@@ -14,7 +14,7 @@ async function main() {
     const privateKeyStr = fs.readFileSync('../key.txt', 'utf8')
     const privateKeyArr = privateKeyStr.replace('[', '').replace(']', '').split(',');
     const privateKeyToIntArr = Uint8Array.from(privateKeyArr);
-    //console.log(privateKeyToIntArr);
+    //1console.log(privateKeyToIntArr);
     const keypair = web3.Keypair.fromSeed(Uint8Array.from(privateKeyArr))
     const userPublicKey = keypair.publicKey
 
