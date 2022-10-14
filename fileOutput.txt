@@ -1,0 +1,63 @@
+request TokenAccounts...
+
+CURRENT BALANCES: 
+  ATLAS: 163.3837906
+  FOOD: 793
+  TOOLKIT: 686
+  FUEL: 727
+  AMMUNITION: 611
+
+request AllFleetsForUser...
+SHIPS STATUSES: 
+-------------------------------
+ 1 [1m Ship - Opal Jet [0m 1 SHIPS (Ev3xUhc1Leqi4qR2E5VoG9pcxCvHHmnAaSRVPg485xAT)
+    ATLAS pending - 6.5105
+ [91m   HEALTH: 0% [0m  [91m   FUEL: 0% [0m  [91m   FOOD: 0% [0m  [91m   AMMO: 0% [0m  
+-------------------------------
+ 2 [1m Ship - Fimbul Airbike [0m 1 SHIPS (Fw8PqtznYtg4swMk7Yjj89Tsj23u5CJLfW5Bk8ro4G1s)
+    ATLAS pending - 5.8486
+ [91m   HEALTH: 0% [0m  [91m   FUEL: 0% [0m  [91m   FOOD: 0% [0m  [91m   AMMO: 0% [0m  
+-------------------------------
+ 
+needReSupply: true
+RE-SUPPLY ALL SHIPS:
+Ship - Opal Jet (Ev3xUhc1Leqi4qR2E5VoG9pcxCvHHmnAaSRVPg485xAT)
+Sending Refuel... 
+send tx 5zSJFysU55mkd8975tQ5oAonF91QxqGKjdjdXLKnQpeqH7scyYuCnoQ7w6zJYkP5QdQ78GFhiP4gjAKr6AtZTRqT
+Sending Refeed... 
+send tx 2BWbP6sRucjZcsZsP7MpZffAdZxrnRiYzj6mE1V5Zny54omr8hDJn3jFH4XdP4pxFskLj6dJRjQEn2LvS6i5A1EJ
+Sending Repair... 
+send tx 4g2e148wVo297S5ybTQMDFSjt73TxfUKiY7eza3hC4T3cf559Kn7MsfvasruBvRgr8XUUs8LZkcjYzPaSvGJhXZ
+Sending Rearm... 
+send tx 22M2EKApJya5tkey9SzLFkXPmkfwdAVTiGu2ZtxDyFdh3N4y44wdZJpxj3zWjCibJeiCsq5iUXa4Fa4NAhJE5VM4
+----
+Ship - Fimbul Airbike (Fw8PqtznYtg4swMk7Yjj89Tsj23u5CJLfW5Bk8ro4G1s)
+Sending Refuel... 
+send tx qaHwEkBe3C8RR5QQtbk19QMETbR8DcLW3LyPxoFMhNvoaernnder1uFMTTZJVw3WToEUZGhc8nUhVtGxHgumLsD
+Sending Refeed... 
+send tx 3z9d9dWhBmBq9YGviq5SuxDLGiozjiKLdLBcb1SGgB5LFBKg34ZoPJDbsMjbSHQnbJL3AApxPsiq1KK5UfSECtfK
+Sending Repair... 
+send tx 62GxKJW8QEMMKMVqKuWqU7j6M1Es2LKmhCfESVdfiv9xB1BrGX3ufXcvHgbPXDcDqc9sexwqQd5pPyrZTrAiCBa
+Sending Rearm... 
+send tx 2DnZrGh5ARMCgNrBGhbkaM4wkku5XiAY7e9GmFB4Aq2x5Kv3YHVUDoFWX9U18TkDC1iAnE8xuDjnNh3CsSVfRXE2
+----
+request AllFleetsForUser...
+SPENT RESOURCES: 
+  FOOD: 42
+  TOOLKIT: 69
+  FUEL: 71
+  AMMUNITION: 50
+ 
+SHIPS STATUSES: 
+-------------------------------
+ 1 [1m Ship - Opal Jet [0m 1 SHIPS (Ev3xUhc1Leqi4qR2E5VoG9pcxCvHHmnAaSRVPg485xAT)
+    ATLAS pending - 6.5106
+ [92m   HEALTH: 100% [0m  [92m   FUEL: 100% [0m  [92m   FOOD: 100% [0m  [92m   AMMO: 100% [0m  
+-------------------------------
+ 2 [1m Ship - Fimbul Airbike [0m 1 SHIPS (Fw8PqtznYtg4swMk7Yjj89Tsj23u5CJLfW5Bk8ro4G1s)
+    ATLAS pending - 5.8486
+ [92m   HEALTH: 100% [0m  [92m   FUEL: 100% [0m  [92m   FOOD: 100% [0m  [92m   AMMO: 100% [0m  
+ 
+TOTAL CLAIM ATLAS:[92m + 0[0m 
+CURRENT ATLAS BALANCE: 163.3837906
+ 

@@ -14,7 +14,7 @@ async function main() {
     const privateKeyStr = fs.readFileSync('../key.txt', 'utf8')
     const privateKeyArr = privateKeyStr.replace('[', '').replace(']', '').split(',');
     const privateKeyToIntArr = Uint8Array.from(privateKeyArr);
-    //1console.log(privateKeyToIntArr);
+    //console.log(privateKeyToIntArr);
     const keypair = web3.Keypair.fromSeed(Uint8Array.from(privateKeyArr))
     const userPublicKey = keypair.publicKey
 
@@ -144,24 +144,24 @@ async function main() {
             const toolkitMaxReserve = shipStakingInfo[i].healthCurrentCapacity / (shipInfo.millisecondsToBurnOneToolkit / 1000)
             const leftHealth = toolkitMaxReserve - (nowSec - shipStakingInfo[i].currentCapacityTimestamp) / (shipInfo.millisecondsToBurnOneToolkit / 1000)
             const percentHealth = Math.ceil(leftHealth / ((shipInfo.toolkitMaxReserve) / 100))
-            percentHealth < 50 ? printRedPercent(percentHealth, "HEALTH") : printGreenPercent(percentHealth, "HEALTH")
+            percentHealth < 10 ? printRedPercent(percentHealth, "HEALTH") : printGreenPercent(percentHealth, "HEALTH")
 
             const fuelMaxReserve = shipStakingInfo[i].fuelCurrentCapacity / (shipInfo.millisecondsToBurnOneFuel / 1000)
             const leftFuel = fuelMaxReserve - (nowSec - shipStakingInfo[i].currentCapacityTimestamp) / (shipInfo.millisecondsToBurnOneFuel / 1000)
             const percentFuel = Math.round(leftFuel / ((shipInfo.fuelMaxReserve) / 100))
-            percentFuel < 50 ? printRedPercent(percentFuel, "FUEL") : printGreenPercent(percentFuel, "FUEL")
+            percentFuel < 10 ? printRedPercent(percentFuel, "FUEL") : printGreenPercent(percentFuel, "FUEL")
 
             const foodMaxReserve = shipStakingInfo[i].foodCurrentCapacity / (shipInfo.millisecondsToBurnOneFood / 1000) //89221
             const leftFood = foodMaxReserve - (nowSec - shipStakingInfo[i].currentCapacityTimestamp) / (shipInfo.millisecondsToBurnOneFood / 1000)
             const percentFood = Math.round(leftFood / ((shipInfo.foodMaxReserve) / 100))
-            percentFood < 50 ? printRedPercent(percentFood, "FOOD") : printGreenPercent(percentFood, "FOOD")
+            percentFood < 10 ? printRedPercent(percentFood, "FOOD") : printGreenPercent(percentFood, "FOOD")
 
             const armsMaxReserve = shipStakingInfo[i].armsCurrentCapacity / (shipInfo.millisecondsToBurnOneArms / 1000)
             const leftArms = armsMaxReserve - (nowSec - shipStakingInfo[i].currentCapacityTimestamp) / (shipInfo.millisecondsToBurnOneArms / 1000)
             const percentArms = Math.round(leftArms / ((shipInfo.armsMaxReserve) / 100))
-            percentArms < 50 ? printRedPercent(percentArms, "AMMO") : printGreenPercent(percentArms, "AMMO")
+            percentArms < 10 ? printRedPercent(percentArms, "AMMO") : printGreenPercent(percentArms, "AMMO")
             console.log(' ')
-            needReSupply = needReSupply || leftHealth < 50 || percentFuel < 50 || percentFood < 50 || percentArms < 50
+            needReSupply = needReSupply || leftHealth < 10 || percentFuel < 10 || percentFood < 10 || percentArms < 10
         }
         return needReSupply
     }

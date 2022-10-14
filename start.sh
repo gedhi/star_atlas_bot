@@ -7,10 +7,10 @@ do
     echo $(date)
     #printf "Running ${LCYAN}${function}${NC} vault ${YELLOW}#${vault_id}${NC} on ${LGREEN}${network_id}${NC}\n"
     echo
-    node main.js
+    node main.js > fileOutput.txt
     echo
     # SE - Send vault status to Telegram
-    #./send-telegram.sh
+    ./send-telegram.sh
     while [ $counter -gt -1 ]
     do
         echo Waiting $counter seconds
