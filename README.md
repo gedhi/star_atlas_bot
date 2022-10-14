@@ -9,7 +9,7 @@ run:
 # Updates
 
 14.10.2022
-Changed Solana RPC to https://solana-api.projectserum.com/ in /home/seb/github/star_atlas_bot/node_modules/@solana/web3.js/lib/index.cjs.js
+Changed Solana RPC to https://solana-api.projectserum.com/ in /node_modules/@solana/web3.js/lib/index.cjs.js
 
 Line 8523
 const endpoint = {
